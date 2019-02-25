@@ -45,7 +45,7 @@ updateStateMachine = (myState) => {
 
 setInterval(function(){
 	updateStateMachine(state);
-}, interval); // Loops every 1/10th of a second
+}, interval);
 
 determineInitialState = () => {
 	if (hasEnoughPotions()){
