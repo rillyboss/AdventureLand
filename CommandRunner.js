@@ -23,7 +23,6 @@ function on_cm(from, data) {
             break;
             
         case COMMAND_TYPES.SET_TARGET:
-			say("I'm attacking " + data.payload + "!");
 			setTarget(from);
 			break;
 			
