@@ -1,4 +1,4 @@
-let interval = 1000/4;
+let interval = 1000 / 4;
 let potionThreshold = 10;
 let potionBuyCount = 100;
 let state = "";

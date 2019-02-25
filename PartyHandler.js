@@ -1,17 +1,17 @@
 setupParty = () => {
-    if (isInParty()){
+    if (isInParty()) {
         game_log("Already in a Party. Leaving to join group.")
         leaveParty();
     }
-	game_log("Searching for existing group party.");
-	let partyLeader = findPartyLeader();
-	if (partyLeader != null){
-		game_log("Requesting to join " + partyLeader + "'s party");
-		joinParty(partyLeader);
-	} else {
-		game_log("No party leader found. Starting new party.");
-		initiateParty();
-	}
+    game_log("Searching for existing group party.");
+    let partyLeader = findPartyLeader();
+    if (partyLeader != null) {
+        game_log("Requesting to join " + partyLeader + "'s party");
+        joinParty(partyLeader);
+    } else {
+        game_log("No party leader found. Starting new party.");
+        initiateParty();
+    }
 }
 
 leaveParty = () => {
@@ -27,48 +27,48 @@ isPartyLeader = () => {
 }
 
 findPartyLeader = () => {
-	for (var partyMember in PARTY_MEMBERS){
-		let player = get_player(getPartyMemberName(partyMember));
-		if (player && player.party !== undefined){
-				return player.party;
-		}
-	}	
-	return null;
+    for (var partyMember in PARTY_MEMBERS) {
+        let player = get_player(getPartyMemberName(partyMember));
+        if (player && player.party !== undefined) {
+            return player.party;
+        }
+    }
+    return null;
 }
 
 joinParty = (partyLeaderName) => {
-	send_party_request(partyLeaderName);
+    send_party_request(partyLeaderName);
 }
 
 initiateParty = () => {
-    for (var partyMember in PARTY_MEMBERS){
-        if (getPartyMemberName(partyMember) != character.name){
-			game_log("Inviting " + partyMember + " join party.");
+    for (var partyMember in PARTY_MEMBERS) {
+        if (getPartyMemberName(partyMember) != character.name) {
+            game_log("Inviting " + partyMember + " join party.");
             send_party_invite(getPartyMemberName(partyMember));
         }
     }
 }
 
-function on_party_invite(name){
-    for (var partyMember in PARTY_MEMBERS){
-        if (getPartyMemberName(partyMember) == name){
+function on_party_invite(name) {
+    for (var partyMember in PARTY_MEMBERS) {
+        if (getPartyMemberName(partyMember) == name) {
             accept_party_invite(name);
-			return;
+            return;
         }
     }
 }
 
-function on_party_request(name){
-	for (var partyMember in PARTY_MEMBERS){
-        if (getPartyMemberName(partyMember) == name){
-			
+function on_party_request(name) {
+    for (var partyMember in PARTY_MEMBERS) {
+        if (getPartyMemberName(partyMember) == name) {
+
             accept_party_request(name);
-			return;
+            return;
         }
     }
 }
 
-getPartyMemberName = (key) =>{
+getPartyMemberName = (key) => {
     return PARTY_MEMBERS[key];
 }
 

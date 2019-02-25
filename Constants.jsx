@@ -5,9 +5,9 @@ const PARTY_MEMBERS = {
     DEALYBOSS: "DealyBoss",
     MELEEBOSS: "MeleeBoss"
 };
-​
+
 const HEALER = PARTY_MEMBERS.HEALYBOSS;
-​
+
 const STATES = {
     PAUSED: 'PAUSED',
     INITIAL_STATE: 'INITIAL STATE',
@@ -16,7 +16,7 @@ const STATES = {
     BUYING_POTIONS: 'BUYING POTIONS',
     MOVING_TO_ENEMIES: 'MOVING TO ENEMIES'
 };
-​
+
 const COMMAND_TYPES = {
     SAY: 'SAY',
     HEAL_REQUEST: 'HEAL_REQUEST'
