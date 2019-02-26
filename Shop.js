@@ -5,8 +5,9 @@ moveToPotions = () => {
 }
 
 buyPotions = () => {
-	let healthPotionsCount = potionBuyCount - getItemQuantity(POTION_TYPES.HP_POTION_SMALL);
-	let manaPotionsCount = potionBuyCount - getItemQuantity(POTION_TYPES.MP_POTION_SMALL);
+	let buyCount = getPotionBuyCount();
+	let healthPotionsCount = buyCount - getItemQuantity(POTION_TYPES.HP_POTION_SMALL);
+	let manaPotionsCount = buyCount - getItemQuantity(POTION_TYPES.MP_POTION_SMALL);
 	if (healthPotionsCount > 0) {
 		buy_with_gold(POTION_TYPES.HP_POTION_SMALL, healthPotionsCount);
 		game_log(`Bought ${healthPotionsCount} health potions.`);

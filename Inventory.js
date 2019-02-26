@@ -7,5 +7,6 @@ getItemQuantity = (name) => {
 }
 
 hasEnoughPotions = () => {
-	return (getItemQuantity(POTION_TYPES.HP_POTION_SMALL) >= potionThreshold && getItemQuantity(POTION_TYPES.MP_POTION_SMALL) >= potionThreshold);
+	let threshold = getPotionCountRestockThreshold();
+	return (getItemQuantity(POTION_TYPES.HP_POTION_SMALL) >= threshold && getItemQuantity(POTION_TYPES.MP_POTION_SMALL) >= threshold);
 }

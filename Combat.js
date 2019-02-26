@@ -1,10 +1,10 @@
-updateCombatState = () => {
-	let healThreshold = character.max_hp * .15;
-	let manaThreshold = character.max_mp * .05;
+updateCombatState = () => {	
 	if (hasEnoughPotions()) {
 		try {
-			useHealthPotion(healThreshold);
-			useManaPotion(manaThreshold);
+			let useHealthPotionThreshold = getUseHealthPotionThreshold() * character.max_hp;
+			let useManaPotionThreshold = getUseManaPotionThreshold() * character.max_mp;
+			useHealthPotion(useHealthPotionThreshold);
+			useManaPotion(useManaPotionThreshold);
 			loot();
 			findCombatTarget();
 			moveToCombatTarget();
@@ -66,11 +66,11 @@ moveToEnemies = () => {
 
 requestHealing = (requestThreshold) => {
 	if (new Date() > nextValidHealRequestDate) {
-		if (character.hp < character.max_hp / 2) {
+		if (character.hp < requestThreshold) {
 			safeSay(`${HEALER}, I need healing!`);
 			send_cm(HEALER, new Command(COMMAND_TYPES.HEAL_REQUEST, ""));
 			var newDate = new Date();
-			newDate.setSeconds(newDate.getSeconds() + healRequestDelayInSeconds);
+			newDate.setSeconds(newDate.getSeconds() + getHealRequestDelayInSeconds());
 			nextValidHealRequestDate = newDate;
 		}
 	}

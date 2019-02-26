@@ -7,6 +7,6 @@ safeSay = (message) => {
 
 updateSayInterval = () => {
     var date = new Date();
-    date.setSeconds(date.getSeconds() + sayIntervalInSeconds);
+    date.setSeconds(date.getSeconds() + getSayIntervalInSeconds());
     nextSayAllowedDate = date;
 }
