@@ -23,8 +23,8 @@ const COMMAND_TYPES = {
 };
 
 const POTION_TYPES = {
-    HP_POTION_SMALL = "hpot0",
-    HP_POTION_LARGE = "hpot1",
-    MP_POTION_SMALL = "mpot0",
-    MP_POTION_LARGE = "mpot1",
+    HP_POTION_SMALL: "hpot0",
+    HP_POTION_LARGE: "hpot1",
+    MP_POTION_SMALL: "mpot0",
+    MP_POTION_LARGE: "mpot1",
 }

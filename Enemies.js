@@ -1,4 +1,4 @@
 ENEMY_TYPES = {
-    GOO = "goo",
-    BEE = "bee"
+    GOO: "goo",
+    BEE: "bee"
 }

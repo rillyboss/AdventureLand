@@ -1,3 +1,3 @@
 const WORLD_LOCATIONS = {
-    POTIONS = "potions"
+    POTIONS: "potions"
 }
