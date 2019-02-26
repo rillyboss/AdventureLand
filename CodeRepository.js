@@ -1,4 +1,4 @@
-const repoURL = "https://raw.githubusercontent.com/rillyboss/AdventureLand/master/";
+const repoURL = "https://raw.githubusercontent.com/rillyboss/AdventureLand/:branch/";
 
 function CodeFile(slot, name, extension = ""){
     this.slot = slot;
@@ -22,13 +22,13 @@ let codeFiles = [
     new Codefile(13, "StateMachine")
 ];
 
-function getCodeFromGitHub() {
+function getCodeFromRemoteBranch(branch) {
     parent.api_call("list_codes", {
         callback: function () {
             game_log("Updating from GitHub..."),
             codeFiles.foreach((codeFile) => {
                 let request = new XMLHttpRequest();
-                request.open("GET", repoURL + codeFile.name + codeFile.extension);
+                request.open("GET", repoURL.replace(":branch", branch) + codeFile.name + codeFile.extension);
                 request.onreadystatechange = function () {
                     if (request.readyState === 4 && request.status === 200) {
                         let data = {
