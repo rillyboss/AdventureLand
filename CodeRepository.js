@@ -34,8 +34,7 @@ getCodeFromRemoteBranch = (user, repo, branch) => {
             CodeFiles.forEach(file => {
                 let request = new XMLHttpRequest();
                 let filePath = `${getRepoUrl(user, repo, branch)}${file.name}${file.extension}`;
-                request.open("GET", filePath);
-                game_log(`Requesting ${file.slot} - ${file.name} : ${filePath}`);
+                request.open("GET", filePath);                
                 request.onreadystatechange = () => {
                     if (request.readyState === 4 && request.status === 200) {
                         let data = {
@@ -44,7 +43,7 @@ getCodeFromRemoteBranch = (user, repo, branch) => {
                             code: request.responseText
                         };
                         parent.api_call("save_code", data);
-                        game_log(`Recieved  ${JSON.stringify(file)}`);
+                        game_log(`Recieved ${file.slot} - ${file.name}`);
                     }
                 };
                 request.send();
