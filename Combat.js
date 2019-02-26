@@ -63,7 +63,7 @@ moveToEnemies = () => {
 requestHealing = (requestThreshold) => {
 	if (new Date() > nextValidHealRequestDate) {
 		if (character.hp < character.max_hp / 2) {
-			safeSay(HEALER + ", I need healing!");
+			safeSay(`${HEALER}, I need healing!`);
 			send_cm(HEALER, new Command(COMMAND_TYPES.HEAL_REQUEST, ""));
 			var newDate = new Date();
 			newDate.setSeconds(newDate.getSeconds() + healRequestDelayInSeconds);

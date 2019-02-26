@@ -17,16 +17,16 @@ sendCommandtoParty = (command, sendToSelf = false) => {
 function on_cm(from, data) {
 
 	if (!data) {
-		game_log("Recieved empty command from " + from);
+		game_log(`Recieved empty command from ${from}`);
 		return;
 	}
 
 	if (!(data.authKey && data.authKey === authKey)) {
-		game_log("Recieved unauthorized command from " + from);
+		game_log(`Recieved unauthorized command from ${from}`);
 		return;
 	}
 
-	game_log("Recieved command:" + JSON.stringify(data) + "  from " + from);
+	game_log(`Recieved command: ${JSON.stringify(data)} from ${from}`);
 
 	switch (data.type) {
 		case COMMAND_TYPES.SAY:
@@ -34,7 +34,7 @@ function on_cm(from, data) {
 			break;
 
 		case COMMAND_TYPES.HEAL_REQUEST:
-			safeSay("Im healing " + from + "!");
+			safeSay(`Im healing ${from}`);
 			heal(get_player(from));
 			break;
 
@@ -43,7 +43,7 @@ function on_cm(from, data) {
 			break;
 
 		default:
-			game_log("Unhandled command type.");
+			game_log("Unhandled command type");
 			break;
 	}
 }

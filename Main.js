@@ -1,4 +1,4 @@
-scriptLoadError = (scriptName) => game_log("Error Loading " + scriptName + " Script");
+scriptLoadError = (scriptName) => game_log(`Error Loading Script: ${scriptName}`);
 loadCode = (scriptName) => load_code(scriptName, scriptLoadError(scriptName));
 
 loadCode("Constants"); 

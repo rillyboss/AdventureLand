@@ -1,5 +1,5 @@
 setState = (newState) => {
-	game_log("New State: " + newState, "#ff00dc");
+	game_log(`${state} => ${newState}`, "#ff00dc");
 	state = newState;
 }
 
