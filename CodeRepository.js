@@ -27,7 +27,7 @@ getCodeFromRemoteBranch = (branch) => {
     parent.api_call("list_codes", {
         callback: function () {
             game_log("Updating from remote branch " + branch);
-            CodeFiles.foreach(file => {
+            CodeFiles.forEach(file => {
                 let request = new XMLHttpRequest();
                 let path = repoURL.replace(":branch", branch) + file.name + file.extension;
                 request.open("GET", path);
