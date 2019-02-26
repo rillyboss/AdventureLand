@@ -27,10 +27,11 @@ const CodeFiles = [
     new CodeFile(14, "StateMachine")
 ];
 
-getCodeFromRemoteBranch = (user, repo, branch) => {
+fetchCodeFromRemoteBranch = (user, repo, branch) => {
+    let recievedCount = 0;
     parent.api_call("list_codes", {
         callback: () => {
-            game_log("Updating from remote branch " + branch);
+            game_log("Fetching updated code from remote branch " + branch);
             CodeFiles.forEach(file => {
                 let request = new XMLHttpRequest();
                 let filePath = `${getRepoUrl(user, repo, branch)}${file.name}${file.extension}`;
@@ -44,11 +45,14 @@ getCodeFromRemoteBranch = (user, repo, branch) => {
                         };
                         parent.api_call("save_code", data);
                         game_log(`Recieved ${file.slot} - ${file.name}`);
+                        recievedCount++;
+                        if (recievedCount == CodeFiles.length){
+                            game_log('Fetch Completed.');
+                        }
                     }
                 };
                 request.send();
             });
-            game_log("Fetch Completed.");
         }
     });
 }
