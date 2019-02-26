@@ -1,9 +1,13 @@
-const repoURL = "https://raw.githubusercontent.com/rillyboss/AdventureLand/:branch/";
+const repoURL = "https://raw.githubusercontent.com/:user/:repo/:branch/";
 
 function CodeFile(slot, name, extension = ".js"){
     this.slot = slot;
     this.name = name;
     this.extension = extension;
+}
+
+getRepoUrl = (user, repo, branch) => {
+    return repoURL.replace(":user", user).replace(":repo", repo).replace(":branch", branch);
 }
 
 const CodeFiles = [
@@ -25,18 +29,18 @@ const CodeFiles = [
 
 getCodeFromRemoteBranch = (branch) => {
     parent.api_call("list_codes", {
-        callback: function () {
+        callback: () => {
             game_log("Updating from remote branch " + branch);
             CodeFiles.forEach(file => {
                 let request = new XMLHttpRequest();
-                let path = repoURL.replace(":branch", branch) + file.name + file.extension;
-                request.open("GET", path);
-                game_log("Requesting " + path);
-                request.onreadystatechange = function () {
+                let filePath = getRepoUrl + file.name + file.extension;
+                request.open("GET", filePath);
+                game_log("Requesting " + filePath);
+                request.onreadystatechange = () => {
                     if (request.readyState === 4 && request.status === 200) {
                         let data = {
-                            name: codeObject.name,
-                            slot: codeObject.slot,
+                            name: file.name,
+                            slot: file.slot,
                             code: request.responseText
                         };
                         parent.api_call("save_code", data);
