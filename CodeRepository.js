@@ -7,7 +7,7 @@ function CodeFile(slot, name, extension = ""){
 }
 
 let CodeFiles = [
-    new CodeFile(2, "CodeRepositorys"), 
+    new CodeFile(2, "CodeRepository"), 
     new CodeFile(2, "Main"), 
     new CodeFile(3, "Constants"), 
     new CodeFile(4, "Constants"), 
@@ -28,9 +28,11 @@ getCodeFromRemoteBranch = (branch) => {
     parent.api_call("list_codes", {
         callback: function () {
             game_log("Updating from GitHub..."),
-            CodeFiles.foreach((CodeFile) => {
+            CodeFiles.foreach((codeFile) => {
                 let request = new XMLHttpRequest();
-                request.open("GET", repoURL.replace(":branch", branch) + CodeFile.name + CodeFile.extension);
+                let path = repoURL.replace(":branch", branch) + codeFile.name + codeFile.extension;
+                request.open("GET", path);
+                game_log("Requesting " + path);
                 request.onreadystatechange = function () {
                     if (request.readyState === 4 && request.status === 200) {
                         let data = {
@@ -39,10 +41,12 @@ getCodeFromRemoteBranch = (branch) => {
                             code: request.responseText
                         };
                         parent.api_call("save_code", data);
+                        game_log("Recieved " + JSON.stringify(codeFile));
                     }
                 };
                 request.send();
             });
+            game_log("Fetch Completed.");
         }
     });
 }
