@@ -24,7 +24,7 @@ let CodeFiles = [
     new CodeFile(15, "StateMachine")
 ];
 
-function getCodeFromRemoteBranch(branch) {
+getCodeFromRemoteBranch = (branch) => {
     parent.api_call("list_codes", {
         callback: function () {
             game_log("Updating from GitHub..."),
