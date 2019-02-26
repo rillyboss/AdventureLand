@@ -26,7 +26,7 @@ function on_cm(from, data) {
 		return;
 	}
 
-	game_log(`Recieved command: ${JSON.stringify(data)} from ${from}`);
+	game_log(`Recieved command: ${JSON.stringify(data.type)} - ${JSON.stringify(data.payload)} from ${from}`);
 
 	switch (data.type) {
 		case COMMAND_TYPES.SAY:
@@ -39,7 +39,7 @@ function on_cm(from, data) {
 			break;
 
 		case COMMAND_TYPES.SET_TARGET:
-			setTarget(data.payload);
+			setCombatTarget(data.payload);
 			break;
 
 		default:

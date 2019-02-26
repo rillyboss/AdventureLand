@@ -20,7 +20,8 @@ const STATES = {
 
 const COMMAND_TYPES = {
     SAY: 'SAY',
-    HEAL_REQUEST: 'HEAL_REQUEST'
+    HEAL_REQUEST: 'HEAL_REQUEST',
+    SET_TARGET: 'SET_TARGET'
 };
 
 const POTION_TYPES = {
