@@ -1,0 +1,9 @@
+let interval = 1000 / 4;
+let potionThreshold = 10;
+let potionBuyCount = 100;
+let state = "";
+let enemyToKill = ENEMY_TYPES.GOO;
+let nextValidHealRequestDate = new Date();
+let healRequestDelayInSeconds = 5;
+let sayIntervalInSeconds = 15;
+let nextSayAllowedDate = new Date();

@@ -1,8 +1,15 @@
-load_code("State", () => game_log("Error Loading State"));
-load_code("AuthKey", () => game_log("Error Loading AuthData"));
-load_code("Constants", () => game_log("Error Loading Data"));
-load_code("Commands", () => game_log("Error Loading Commands"));
-load_code("CommandRunner", () => game_log("Error Loading CommandRunner"));
-load_code("CommandSender", () => game_log("Error Loading CommandSender"));
-load_code("PartyHandler", () => game_log("Error Loading PartyHandler"));
-load_code("AutoFighter", () => game_log("Error Loading AutoFighter"));
+//AuthKey needs to be created manually and expose a const string of authKey! I store this in slot 100.
+loadCode("AuthKey"); 
+loadCode("Constants"); 
+loadCode("Enemies");
+loadCode("Inventory");
+loadCode("Locations");
+loadCode("SafeSay");
+loadCode("Config");
+loadCode("Shop");
+loadCode("Commands");
+loadCode("Party");
+loadCode("Targeting");
+loadCode("Combat");
+loadCode("StateMachine");
+loadCode("ConsoleUtilities");
