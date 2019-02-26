@@ -33,8 +33,6 @@ moveToCombatTarget = () => {
 		return;
 	}
 
-	if (can)
-
 	if (!in_attack_range(combatTarget)) {
 		let newX = character.x + (combatTarget.x - character.x) / 2;
 		let newY = character.y + (combatTarget.y - character.y) / 2;
