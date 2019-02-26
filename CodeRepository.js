@@ -68,7 +68,7 @@ getVersionFromRemoteBranch = (user, repo, branch) => {
     game_log(`Checking for updated code from remote branch ${branch}`);
     game_log(`Current Version: ${version}`);
     let request = new XMLHttpRequest();
-    let filePath = `${getRepoUrl(user, repo, branch)}version.txt`;
+    let filePath = `${getRepoUrl(user, repo, branch)}Version.txt`;
     request.open("GET", filePath);                
     request.onreadystatechange = () => {
         if (request.readyState === 4 && request.status === 200) {
