@@ -1,6 +1,3 @@
-scriptLoadError = (scriptName) => game_log(`Error Loading Script: ${scriptName}`);
-loadCode = (scriptName) => load_code(scriptName, () => scriptLoadError(scriptName));
-
 //AuthKey needs to be created manually and expose a const string of authKey! I store this in slot 100.
 loadCode("AuthKey"); 
 loadCode("Constants"); 

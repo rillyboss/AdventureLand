@@ -1,3 +1,6 @@
+scriptLoadError = (scriptName) => game_log(`Error Loading Script: ${scriptName}`);
+loadCode = (scriptName) => load_code(scriptName, () => scriptLoadError(scriptName));
+
 const repoURL = "https://raw.githubusercontent.com/:user/:repo/:branch/";
 
 function CodeFile(slot, name, extension = ".js"){
@@ -48,6 +51,7 @@ fetchCodeFromRemoteBranch = (user, repo, branch) => {
                         recievedCount++;
                         if (recievedCount == CodeFiles.length){
                             game_log('Fetch Completed.');
+                            startBot();
                         }
                     }
                 };
@@ -55,4 +59,8 @@ fetchCodeFromRemoteBranch = (user, repo, branch) => {
             });
         }
     });
+}
+
+startBot = () => {    
+    loadCode("Main");
 }
