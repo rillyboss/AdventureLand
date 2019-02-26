@@ -97,7 +97,7 @@ setVersion = (newVersion) => {
     if (!newVersion){
         newVersion = '';
     }
-    pset('version', newVersion);
+    pset('VERSION', newVersion);
 }
 
 startBot = () => {    
