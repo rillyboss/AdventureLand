@@ -1,6 +1,8 @@
 scriptLoadError = (scriptName) => game_log(`Error Loading Script: ${scriptName}`);
 loadCode = (scriptName) => load_code(scriptName, () => scriptLoadError(scriptName));
 
+loadCode("Config"); //Required Dependency
+
 const repoURL = "https://raw.githubusercontent.com/:user/:repo/:branch/";
 
 function CodeFile(slot, name, extension = ".js"){
@@ -31,7 +33,7 @@ const CodeFiles = [
     new CodeFile(15, "ConsoleUtilities")
 ];
 
-fetchCodeFromRemoteBranch = (user, repo, branch) => {
+fetchCodeFromRemoteBranch = (user, repo, branch, version) => {
     let recievedCount = 0;
     parent.api_call("list_codes", {
         callback: () => {
@@ -51,7 +53,8 @@ fetchCodeFromRemoteBranch = (user, repo, branch) => {
                         game_log(`Recieved ${file.slot} - ${file.name}`);
                         recievedCount++;
                         if (recievedCount == CodeFiles.length){
-                            game_log('Fetch Completed. Starting Bot.');
+                            setVersion(version);
+                            game_log(`Update to ${version} Completed. Starting Bot.`);
                             startBot();
                         }
                     }
@@ -66,7 +69,6 @@ getVersionFromRemoteBranch = (user, repo, branch) => {
     let version = getVersion();
     game_log(`Checking for updated code from remote branch ${branch}`);
     game_log(`Current Version: ${version}`);
-
     let request = new XMLHttpRequest();
     let filePath = `${getRepoUrl(user, repo, branch)}version.txt`;
     request.open("GET", filePath);                
@@ -83,6 +85,18 @@ getVersionFromRemoteBranch = (user, repo, branch) => {
         }
     };
     request.send();       
+}
+
+getVersion = () => { 
+    try {
+        pget('VERSION');
+    } catch {
+        return '';
+    }
+}
+
+setVersion = (newVersion) => {
+    pset('version', newVersion);
 }
 
 startBot = () => {    

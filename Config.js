@@ -12,7 +12,6 @@ setCharacterConfigSetting = (settingName, value) => {
     return value;
 }
 
-DEFAULT_VERSION = `v0.1-a`;
 const DEFAULT_LOOP_INTERVAL = 1000 / 4;
 const DEFAULT_POTION_COUNT_RESTOCK_THRESHOLD = 20;
 const DEFAULT_POTION_BUY_COUNT = 200;
@@ -22,7 +21,6 @@ const DEFAULT_USE_MANA_POTION_THRESHOLD = .33;
 const DEFAULT_HEAL_REQUEST_DELAY_IN_SECONDS = 1.5;
 const DEFAULT_SAY_INTERVAL_IN_SECONDS = 15;
 
-const SETTING_VERSION = 'VERSION';
 const SETTING_LOOP_INTERVAL = 'LOOP_INTERVAL';
 const SETTING_POTION_COUNT_RESTOCK_THRESHOLD = `POTION_COUNT_RESTOCK_THRESHOLD`;
 const SETTING_POTION_BUY_COUNT = `POTION_BUY_COUNT`;
@@ -32,7 +30,6 @@ const SETTING_USE_MANA_POTION_THRESHOLD = `USE_MANA_POTION_THRESHOLD`;
 const SETTING_HEAL_REQUEST_DELAY_IN_SECONDS = `HEAL_REQUEST_DELAY_IN_SECONDS`;
 const SETTING_SAY_INTERVAL_IN_SECONDS = `SAY_INTERVAL_IN_SECONDS`;
 
-getVersion = () => getCharacterConfigSetting(SETTING_VERSION, DEFAULT_VERSION);
 getInterval = () => getCharacterConfigSetting(SETTING_LOOP_INTERVAL, DEFAULT_LOOP_INTERVAL);
 getPotionCountRestockThreshold = () => getCharacterConfigSetting(SETTING_POTION_COUNT_RESTOCK_THRESHOLD, DEFAULT_POTION_COUNT_RESTOCK_THRESHOLD);
 getPotionBuyCount = () => getCharacterConfigSetting(SETTING_POTION_BUY_COUNT, DEFAULT_POTION_BUY_COUNT);
@@ -42,7 +39,6 @@ getUseManaPotionThreshold = () => getCharacterConfigSetting(SETTING_USE_MANA_POT
 getHealRequestDelayInSeconds = () => getCharacterConfigSetting(SETTING_HEAL_REQUEST_DELAY_IN_SECONDS, DEFAULT_HEAL_REQUEST_DELAY_IN_SECONDS);
 getSayIntervalInSeconds = () => getCharacterConfigSetting(SETTING_SAY_INTERVAL_IN_SECONDS, DEFAULT_SAY_INTERVAL_IN_SECONDS);
 
-setVersion = (newvalue) => setCharacterConfigSetting(SETTING_VERSION, newValue);
 setInterval = (newvalue) => setCharacterConfigSetting(SETTING_LOOP_INTERVAL, newValue);
 setPotionCountRestockThreshold = (newvalue) => setCharacterConfigSetting(SETTING_POTION_COUNT_RESTOCK_THRESHOLD, newValue);
 setPotionBuyCount = (newvalue) => setCharacterConfigSetting(SETTING_POTION_BUY_COUNT, newValue);
