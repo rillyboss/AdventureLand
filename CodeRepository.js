@@ -1,6 +1,6 @@
 const repoURL = "https://raw.githubusercontent.com/rillyboss/AdventureLand/:branch/";
 
-function CodeFile(slot, name, extension = ""){
+function CodeFile(slot, name, extension = ".js"){
     this.slot = slot;
     this.name = name;
     this.extension = extension;
