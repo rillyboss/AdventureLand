@@ -33,11 +33,16 @@ moveToCombatTarget = () => {
 		return;
 	}
 
+	if (can)
+
 	if (!in_attack_range(combatTarget)) {
-		move(
-			character.x + (combatTarget.x - character.x) / 2,
-			character.y + (combatTarget.y - character.y) / 2
-		);
+		let newX = character.x + (combatTarget.x - character.x) / 2;
+		let newY = character.y + (combatTarget.y - character.y) / 2;
+		if (can_move_to(newX, newY)){
+			move(newX, newY);
+		} else {
+			smart_move(combatTarget.real_x, combatTarget.real_y);
+		}
 	}
 }
 

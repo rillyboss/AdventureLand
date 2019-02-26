@@ -12,3 +12,4 @@ loadCode("Party");
 loadCode("Targeting");
 loadCode("Combat");
 loadCode("StateMachine");
+loadCode("ConsoleUtilities");
