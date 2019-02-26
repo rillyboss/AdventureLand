@@ -51,8 +51,8 @@ fetchCodeFromRemoteBranch = (user, repo, branch, version) => {
                         game_log(`Recieved ${file.slot} - ${file.name}`);
                         recievedCount++;
                         if (recievedCount == CodeFiles.length){
-                            setVersion(version);
                             game_log(`Update to ${version} Completed. Starting Bot.`);
+                            setVersion(version);                            
                             startBot();
                         }
                     }
@@ -94,6 +94,9 @@ getVersion = () => {
 }
 
 setVersion = (newVersion) => {
+    if (!newVersion){
+        newVersion = '';
+    }
     pset('version', newVersion);
 }
 
