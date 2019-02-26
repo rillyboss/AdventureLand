@@ -60,7 +60,7 @@ useManaPotion = (manaPotionThreshhold) => {
 
 moveToEnemies = () => {
 	if (!is_moving(character)) {
-		smart_move(enemyToKill, () => { setState(STATES.ATTACKING) });
+		smart_move(getEnemyToKill(), () => { setState(STATES.ATTACKING) });
 	}
 }
 
@@ -78,7 +78,7 @@ requestHealing = (requestThreshold) => {
 
 findCombatTarget = () => {
 	if (!combatTarget || combatTarget.dead) {
-		combatTarget = get_nearest_monster({ min_xp: 100, max_att: 120, type: enemyToKill });
+		combatTarget = get_nearest_monster({ min_xp: 100, max_att: 120, type: getEnemyToKill() });
 		if (combatTarget) {
 			useCombatBuffAbility();
 			change_target(combatTarget);
