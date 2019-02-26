@@ -75,7 +75,7 @@ getVersionFromRemoteBranch = (user, repo, branch) => {
             let remoteVersion = request.responseText;
             game_log(`Remote Version: ${remoteVersion}`);
             if (remoteVersion !== version){
-                fetchCodeFromRemoteBranch(user, repo, branch);
+                fetchCodeFromRemoteBranch(user, repo, branch, remoteVersion);
             } else {
                 game_log('Up To Date. Starting Bot.');
                 startBot();
