@@ -6,29 +6,31 @@ function CodeFile(slot, name, extension = ""){
     this.extension = extension;
 }
 
-let codeFiles = [
-    new Codefile(2, "Constants"), 
-    new Codefile(2, "Constants"), 
-    new Codefile(3, "Config"),
-    new Codefile(4, "Enemies"),
-    new Codefile(5, "Inventory"),
-    new Codefile(6, "Locations"),
-    new Codefile(7, "SafeSay"),
-    new Codefile(8, "Shop"),
-    new Codefile(9, "Commands"),
-    new Codefile(10, "Party"),
-    new Codefile(11, "Targeting"),
-    new Codefile(12, "Combat"),
-    new Codefile(13, "StateMachine")
+let CodeFiles = [
+    new CodeFile(2, "CodeRepositorys"), 
+    new CodeFile(2, "Main"), 
+    new CodeFile(3, "Constants"), 
+    new CodeFile(4, "Constants"), 
+    new CodeFile(5, "Config"),
+    new CodeFile(6, "Enemies"),
+    new CodeFile(7, "Inventory"),
+    new CodeFile(8, "Locations"),
+    new CodeFile(9, "SafeSay"),
+    new CodeFile(10, "Shop"),
+    new CodeFile(11, "Commands"),
+    new CodeFile(12, "Party"),
+    new CodeFile(13, "Targeting"),
+    new CodeFile(14, "Combat"),
+    new CodeFile(15, "StateMachine")
 ];
 
 function getCodeFromRemoteBranch(branch) {
     parent.api_call("list_codes", {
         callback: function () {
             game_log("Updating from GitHub..."),
-            codeFiles.foreach((codeFile) => {
+            CodeFiles.foreach((CodeFile) => {
                 let request = new XMLHttpRequest();
-                request.open("GET", repoURL.replace(":branch", branch) + codeFile.name + codeFile.extension);
+                request.open("GET", repoURL.replace(":branch", branch) + CodeFile.name + CodeFile.extension);
                 request.onreadystatechange = function () {
                     if (request.readyState === 4 && request.status === 200) {
                         let data = {
