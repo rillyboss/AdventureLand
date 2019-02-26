@@ -6,31 +6,30 @@ function CodeFile(slot, name, extension = ""){
     this.extension = extension;
 }
 
-let CodeFiles = [
-    new CodeFile(2, "CodeRepository"), 
+const CodeFiles = [
+    new CodeFile(1, "CodeRepository"), 
     new CodeFile(2, "Main"), 
     new CodeFile(3, "Constants"), 
-    new CodeFile(4, "Constants"), 
-    new CodeFile(5, "Config"),
-    new CodeFile(6, "Enemies"),
-    new CodeFile(7, "Inventory"),
-    new CodeFile(8, "Locations"),
-    new CodeFile(9, "SafeSay"),
-    new CodeFile(10, "Shop"),
-    new CodeFile(11, "Commands"),
-    new CodeFile(12, "Party"),
-    new CodeFile(13, "Targeting"),
-    new CodeFile(14, "Combat"),
-    new CodeFile(15, "StateMachine")
+    new CodeFile(4, "Config"),
+    new CodeFile(5, "Enemies"),
+    new CodeFile(6, "Inventory"),
+    new CodeFile(7, "Locations"),
+    new CodeFile(8, "SafeSay"),
+    new CodeFile(9, "Shop"),
+    new CodeFile(10, "Commands"),
+    new CodeFile(11, "Party"),
+    new CodeFile(12, "Targeting"),
+    new CodeFile(13, "Combat"),
+    new CodeFile(14, "StateMachine")
 ];
 
 getCodeFromRemoteBranch = (branch) => {
     parent.api_call("list_codes", {
         callback: function () {
             game_log("Updating from GitHub..."),
-            CodeFiles.foreach((codeFile) => {
+            CodeFiles.foreach(file => {
                 let request = new XMLHttpRequest();
-                let path = repoURL.replace(":branch", branch) + codeFile.name + codeFile.extension;
+                let path = repoURL.replace(":branch", branch) + file.name + file.extension;
                 request.open("GET", path);
                 game_log("Requesting " + path);
                 request.onreadystatechange = function () {
@@ -41,7 +40,7 @@ getCodeFromRemoteBranch = (branch) => {
                             code: request.responseText
                         };
                         parent.api_call("save_code", data);
-                        game_log("Recieved " + JSON.stringify(codeFile));
+                        game_log("Recieved " + JSON.stringify(file));
                     }
                 };
                 request.send();
