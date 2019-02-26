@@ -43,7 +43,7 @@ function on_cm(from, data) {
 			break;
 
 		case COMMAND_TYPES.UPDATE_ENEMY_TO_KILL:
-			enemyToKill = data.payload;
+			setEnemyToKill(data.payload);
 			setState(STATES.MOVING_TO_ENEMIES);
 			break;
 
