@@ -1,4 +1,4 @@
-setCharacterConfigSetting = (settingName, defaultIfNull) => {
+getCharacterConfigSetting = (settingName, defaultIfNull) => {
     try {
         return pget(`${character.name}:${settingName}`);
     } catch (e){
