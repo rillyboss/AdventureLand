@@ -1,4 +1,4 @@
-let interval = getInterval();
+let interval = getLoopInterval();
 
 setState = (newState) => {
 	game_log(`${state} => ${newState}`, "#ff00dc");
