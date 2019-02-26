@@ -15,7 +15,7 @@ setupParty = () => {
 }
 
 leaveParty = () => {
-    say('/leave');
+    safeSay('/leave');
 }
 
 isInParty = () => {

@@ -5,3 +5,5 @@ let state = "";
 let enemyToKill = "goo";
 let nextValidHealRequestDate = new Date();
 let healRequestDelayInSeconds = 5;
+let sayIntervalInSeconds = 15;
+let nextSayAllowedDate = new Date();
