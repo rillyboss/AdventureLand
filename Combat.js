@@ -10,6 +10,7 @@ updateCombatState = () => {
 			moveToCombatTarget();
 			autoAttack();
 		} catch (e) {
+			game_log(`Error during Combat: ${e}`);
 			combatTarget = null;
 		}
 	} else {
@@ -77,7 +78,7 @@ findCombatTarget = () => {
 		combatTarget = get_nearest_monster({ min_xp: 100, max_att: 120, type: enemyToKill });
 		if (combatTarget) {
 			useCombatBuffAbility();
-			change_combatTarget(combatTarget);
+			change_target(combatTarget);
 			if (character.ctype == "warrior") {
 				sendCommandtoParty(new Command(COMMAND_TYPES.SET_TARGET, combatTarget.id));
 			}
@@ -89,7 +90,7 @@ setCombatTarget = (id) => {
 	let newTarget = getTargetEntityFromId(id);
 	if (newTarget !== null) {
 		combatTarget = newTarget;
-		change_combatTarget(combatTarget);
+		change_target(combatTarget);
 	}
 }
 
