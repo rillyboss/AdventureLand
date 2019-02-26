@@ -27,13 +27,13 @@ const CodeFiles = [
     new CodeFile(14, "StateMachine")
 ];
 
-getCodeFromRemoteBranch = (branch) => {
+getCodeFromRemoteBranch = (user, repo, branch) => {
     parent.api_call("list_codes", {
         callback: () => {
             game_log("Updating from remote branch " + branch);
             CodeFiles.forEach(file => {
                 let request = new XMLHttpRequest();
-                let filePath = getRepoUrl() + file.name + file.extension;
+                let filePath = getRepoUrl(user, repo, branch) + file.name + file.extension;
                 request.open("GET", filePath);
                 game_log(`Requesting ${file.slot} - ${file.name}`);
                 request.onreadystatechange = () => {
