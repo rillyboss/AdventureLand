@@ -28,7 +28,7 @@ const CodeFiles = [
     new CodeFile(12, "Targeting"),
     new CodeFile(13, "Combat"),
     new CodeFile(14, "StateMachine"),
-    new CodeFile(15, "ConsoleUtilties")
+    new CodeFile(15, "ConsoleUtilities")
 ];
 
 fetchCodeFromRemoteBranch = (user, repo, branch) => {
