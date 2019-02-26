@@ -33,9 +33,9 @@ getCodeFromRemoteBranch = (user, repo, branch) => {
             game_log("Updating from remote branch " + branch);
             CodeFiles.forEach(file => {
                 let request = new XMLHttpRequest();
-                let filePath = getRepoUrl(user, repo, branch) + file.name + file.extension;
+                let filePath = `${getRepoUrl(user, repo, branch)}${file.name}${file.extension}`;
                 request.open("GET", filePath);
-                game_log(`Requesting ${file.slot} - ${file.name}`);
+                game_log(`Requesting ${file.slot} - ${file.name} : ${filePath}`);
                 request.onreadystatechange = () => {
                     if (request.readyState === 4 && request.status === 200) {
                         let data = {
