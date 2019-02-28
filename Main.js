@@ -13,3 +13,11 @@ loadCode("Targeting");
 loadCode("Combat");
 loadCode("StateMachine");
 loadCode("ConsoleUtilities");
+
+startCharacters = () => {    
+    let characters = [TANK, HEALER, DPS];
+    let charactersToLoad = characters.filter(x => x !== characters.name && get_player(x) == null);
+    charactersToLoad.forEach(x => start_character(x, 'AutoStart'));
+}
+
+startCharacters();
