@@ -38,14 +38,14 @@ getUseManaPotionThreshold = () => getCharacterConfigSetting(SETTING_USE_MANA_POT
 getHealRequestDelayInSeconds = () => getCharacterConfigSetting(SETTING_HEAL_REQUEST_DELAY_IN_SECONDS, DEFAULT_HEAL_REQUEST_DELAY_IN_SECONDS);
 getSayIntervalInSeconds = () => getCharacterConfigSetting(SETTING_SAY_INTERVAL_IN_SECONDS, DEFAULT_SAY_INTERVAL_IN_SECONDS);
 
-setLoopInterval = (newvalue) => setCharacterConfigSetting(SETTING_LOOP_INTERVAL, newValue);
-setPotionCountRestockThreshold = (newvalue) => setCharacterConfigSetting(SETTING_POTION_COUNT_RESTOCK_THRESHOLD, newValue);
-setPotionBuyCount = (newvalue) => setCharacterConfigSetting(SETTING_POTION_BUY_COUNT, newValue);
-setEnemyToKill = (newvalue) => setCharacterConfigSetting(SETTING_ENEMY_TO_KILL, newValue);
-setUseHealthPotionThreshold = (newvalue) => setCharacterConfigSetting(SETTING_USE_HEALTH_POTION_THRESHOLD, newValue);
-setUseManaPotionThreshold = (newvalue) => setCharacterConfigSetting(SETTING_USE_MANA_POTION_THRESHOLD, newValue);
-setHealRequestDelayInSeconds = (newvalue) => setCharacterConfigSetting(SETTING_HEAL_REQUEST_DELAY_IN_SECONDS, DEFAULT_HEAL_REQUEST_DEnewValueLAY_IN_SECONDS);
-setSayIntervalInSeconds = (newvalue) => setCharacterConfigSetting(SETTING_SAY_INTERVAL_IN_SECONDS, newValue);
+setLoopInterval = (newValue) => setCharacterConfigSetting(SETTING_LOOP_INTERVAL, newValue);
+setPotionCountRestockThreshold = (newValue) => setCharacterConfigSetting(SETTING_POTION_COUNT_RESTOCK_THRESHOLD, newValue);
+setPotionBuyCount = (newValue) => setCharacterConfigSetting(SETTING_POTION_BUY_COUNT, newValue);
+setEnemyToKill = (newValue) => setCharacterConfigSetting(SETTING_ENEMY_TO_KILL, newValue);
+setUseHealthPotionThreshold = (newValue) => setCharacterConfigSetting(SETTING_USE_HEALTH_POTION_THRESHOLD, newValue);
+setUseManaPotionThreshold = (newValue) => setCharacterConfigSetting(SETTING_USE_MANA_POTION_THRESHOLD, newValue);
+setHealRequestDelayInSeconds = (newValue) => setCharacterConfigSetting(SETTING_HEAL_REQUEST_DELAY_IN_SECONDS, newValue);
+setSayIntervalInSeconds = (newValue) => setCharacterConfigSetting(SETTING_SAY_INTERVAL_IN_SECONDS, newValue);
 
 let nextValidHealRequestDate = new Date();
 let nextSayAllowedDate = new Date();
